@@ -3,7 +3,6 @@ go:
   - 1.12.x
 env:
   - GO111MODULE=on
-script: go test -mod=vendor -v
 os:
   - linux
   - windows
