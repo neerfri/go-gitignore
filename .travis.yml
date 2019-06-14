@@ -1,30 +1,10 @@
-sudo: required
 language: go
 go:
-- 1.12.x
+  - 1.12.x
 env:
   - GO111MODULE=on
-jobs:
-  include:
-  - name: tests
-    os: linux
-    cache:
-      directories:
-      - $HOME/.cache/go-build
-      - $GOPATH/pkg/mod
-    script:
-    - go test -mod=vendor -v
-  - name: tests
-    os: windows
-    cache:
-      directories:
-      - %LocalAppData%\go-build
-      - %GOPATH%\pkg\mod
-    script: go test -mod=vendor -v
-  - name: tests
-    os: osx
-    cache:
-      directories:
-      - $HOME/Library/Caches/go-build
-      - $GOPATH/pkg/mod
-    script: go test -mod=vendor -v
+script: go test -mod=vendor -v
+os:
+  - linux
+  - windows
+  - osx
